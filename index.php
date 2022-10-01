@@ -1,4 +1,7 @@
 <?php
+/**
+ * The main page, listing all the stories.
+ */
 include "includes/head.php";
 ?>
 
