@@ -6,24 +6,26 @@ body {
     margin: 0;
 }
 
-header {
-    width: 100%;
-    padding: 1em 1em;
+nav {
+    padding: 2em 1em;
     margin: 0;
     background-color: #90B0C8;
 }
 
-#header-title {
+nav a {
     float: left;
-    width: 60px;
 }
 
-#header-navbar {
-    margin-left: 60px;
+.nav-right {
+    float: right;
+}
+
+.nav-right a {
+    padding-left: 1em;
 }
 
 main {
     max-width: 80ch;
-    padding: 3em 1em;
+    padding: 2em 1em;
     margin: auto;
 }
