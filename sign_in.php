@@ -41,7 +41,7 @@ include "includes/head.php";
 
     <main>
         
-        <h2>Sign in</h2>
+        <h1>Sign in</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <p>
                 <label for="username">Username: </label>
@@ -57,7 +57,7 @@ include "includes/head.php";
             </p>
         </form>
 
-        <h2>Register</h2>
+        <h1>Register</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <p>
                 <label for="new_username">New username: </label>
