@@ -4,11 +4,11 @@
  */
 
 function get_mysqli() {
-    $mysqli = new mysqli("localhost", "news_inst", "new_pass", "news");
+    $mysqli = new mysqli("localhost", "news_inst", "news_pass", "news");
 
     if ($mysqli->connect_errno) {
-        printf("Connection Failed: %s\n", $mysqli->connect_error);
-        exit;
+        echo("Connection Failed: " . $mysqli->connect_error);
+        exit();
     }
 
     return $mysqli;
