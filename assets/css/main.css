@@ -6,14 +6,19 @@ body {
     margin: 0;
 }
 
-nav {
-    padding: 2em 1em;
-    margin: 0;
+header {
     background-color: #90B0C8;
+}
+
+nav {
+    padding: 2em 2em;
+    max-width: 80ch;
+    margin: auto;
 }
 
 nav a {
     float: left;
+    color: black;
 }
 
 .nav-right {
@@ -26,6 +31,6 @@ nav a {
 
 main {
     max-width: 80ch;
-    padding: 2em 1em;
+    padding: 2em 2em;
     margin: auto;
 }
