@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #90B0C8;
+}
+
+#header-title {
+    float: left;
+    width: 60px;
+}
+
+#header-navbar {
+    margin-left: 60px;
+}
+
+main {
+    max-width: 80ch;
+    padding: 3em 1em;
+    margin: auto;
+}
