@@ -2,7 +2,7 @@
     <div id="header-title">
         <b>News</b>
     </div>
-    <div id="header-right">
+    <div id="header-navbar">
         hi
     </div>
 </header>
