@@ -39,45 +39,48 @@ include "includes/head.php";
     include "includes/header.php";
     ?>
 
-    <h2>Sign in</h2>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-        <p>
-            <label for="username">Username: </label>
-            <input type="text" name="username" id="username">
-        </p>
-        <p>
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password">
-        </p>
+    <main>
+        
+        <h2>Sign in</h2>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <p>
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="username">
+            </p>
+            <p>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password">
+            </p>
+
+            <p>
+                <input type="submit" value="Submit">
+            </p>
+        </form>
+
+        <h2>Register</h2>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <p>
+                <label for="new_username">New username: </label>
+                <input type="text" name="new_username" id="new_username">
+            </p>
+            <p>
+                <label for="new_password">New password: </label>
+                <input type="password" name="new_password" id="new_password">
+            </p>
+
+            <p>
+                <input type="submit" value="Submit">
+            </p>
+        </form>
 
         <p>
-            <input type="submit" value="Submit">
+            <?php
+            if (isset($error)) {
+                print($error);
+            }
+            ?>
         </p>
-    </form>
-
-    <h2>Register</h2>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-        <p>
-            <label for="new_username">New username: </label>
-            <input type="text" name="new_username" id="new_username">
-        </p>
-        <p>
-            <label for="new_password">New password: </label>
-            <input type="password" name="new_password" id="new_password">
-        </p>
-
-        <p>
-            <input type="submit" value="Submit">
-        </p>
-    </form>
-
-    <p>
-        <?php
-        if (isset($error)) {
-            print($error);
-        }
-        ?>
-    </p>
+    </main>
 </body>
 
 <?php

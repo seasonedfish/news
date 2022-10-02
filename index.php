@@ -10,12 +10,14 @@ include "includes/head.php";
 <body>
     <?php include "includes/header.php" ?>
     
-    <?php 
-    $rows = get_all_posts();
-    foreach ($rows as $row) {
-        printf("%s (%s)\n", $row["title"], $row["username"]);
-    }
-    ?>
+    <main>
+        <?php 
+        $rows = get_all_posts();
+        foreach ($rows as $row) {
+            printf("%s (%s)\n", $row["title"], $row["username"]);
+        }
+        ?>
+    </main>
 </body>
 
 <?php include "includes/tail.php" ?>
