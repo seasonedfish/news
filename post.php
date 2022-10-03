@@ -53,7 +53,7 @@ include "includes/head.php";
         </h2>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>", method="POST">
             <p>
-                <input class="comment-input" type="text" name="comment" id="comment">
+                <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
             </p>
             <p>
                 <input type="submit" value="Submit">
