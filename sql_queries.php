@@ -313,3 +313,22 @@ function update_comment(int $comment_id, string $body) {
     $statement->execute();
     $statement->close();
 }
+
+function get_comment(int $comment_id) {
+    /**
+     * Get a comment from an id
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare("SELECT * FROM comments WHERE comment_id = ?");
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param("i", $comment_id);
+    $statement->execute();
+
+    $result = $statement->get_result();
+    $statement->close();
+    return $result->fetch_all(MYSQLI_ASSOC)[0];
+}
