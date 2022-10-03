@@ -9,7 +9,7 @@ $comment = null;
 function update() {
     global $comment;
 
-    update_comment($comment["comment_id"], $comment["body"]);
+    update_comment($comment["comment_id"], $_POST["body"]);
 }
 
 function main() {
