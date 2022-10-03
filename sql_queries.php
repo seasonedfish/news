@@ -187,7 +187,8 @@ function create_user(string $username, string $password) {
         exit;
     }
 
-    $statement->bind_param('ss', $username, password_hash($password, PASSWORD_DEFAULT));
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    $statement->bind_param('ss', $username, $password_hash);
     $statement->execute();
     $statement->close();
 }
