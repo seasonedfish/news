@@ -75,3 +75,22 @@ function get_post(int $post_id) {
     $statement->close();
     return $result->fetch_all(MYSQLI_ASSOC)[0];
 }
+
+function get_post_author(int $post_id) {
+    /**
+     * Returns an associative array representing the author of a post.
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare("SELECT users.*, posts.username FROM users JOIN posts ON posts.username = users.username WHERE post_id = ?"); 
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param("i", $post_id);
+    $statement->execute();
+
+    $result = $statement->get_result();
+    $statement->close();
+    return $result->fetch_all(MYSQLI_ASSOC)[0];
+}
