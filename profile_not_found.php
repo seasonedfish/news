@@ -12,8 +12,11 @@
     ?>
 
     <main>
+        <h1>
+            Profile not found
+        </h1>
         <p>
-            Profile not found.
+            The requested user doesn't seem to exist.
         </p>
     </main>
 </body>
