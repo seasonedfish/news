@@ -262,3 +262,22 @@ function update_post(int $post_id, string $title, string $body, string $link) {
     $statement->execute();
     $statement->close();
 }
+
+function delete_post(int $post_id) {
+    /**
+     * Deletes a post.
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare("DELETE FROM posts WHERE post_id = ?");
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param(
+        "i",
+        $post_id
+    );
+    $statement->execute();
+    $statement->close();
+}
