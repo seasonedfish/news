@@ -30,6 +30,7 @@ function main() {
     session_start();
     if ($comment["username"] != $_SESSION["username"]) {
         // Username doesn't match
+        
         header("Location: index.php");
         exit();
     }
@@ -52,7 +53,7 @@ include "includes/head.php";
         <h1>
             Delete comment
         </h1>
-        <form action="<?php echo $_SERVER['PHP_SELF'] . "?post_id=" . $comment["comment_id"];?>" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF'] . "?comment_id=" . $comment["comment_id"];?>" method="POST">
             <p>
                 Are you sure you want to delete this comment?
                 <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>" />
