@@ -15,8 +15,10 @@
         <?php 
         $rows = get_all_posts();
         foreach ($rows as $row) {
-            printf("<div>
-                <a href=\"post.php?post_id=%u\">%s</a> --- posted by %s <br>
+            printf("<p>
+                Votes: %d
+            </p>", $row["score"]);
+            printf("<a href=\"post.php?post_id=%u\">%s</a> --- posted by %s <br>
                 <a href=\"%s\">%s</a>
             </div>", $row["post_id"], $row["title"], $row["username"], $row["link"], $row["link"]);
         }

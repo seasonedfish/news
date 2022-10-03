@@ -49,6 +49,20 @@ include "includes/head.php";
         <h1>
             <?php echo $post["title"] ?>
         </h1>
+
+        <?php
+            if (isset($_SESSION['username'])) {
+                printf("<a href=\"upvote.php?post_id=%u\">Upvote</a>
+                %d
+                <a href=\"downvote.php?post_id=%u\">Downvote</a><br>", $post['post_id'], $post["score"], $post['post_id']);
+            }
+            else {
+                printf("<p>
+                    Votes: %d
+                </p>", $post["score"]);
+            }
+        ?>
+
         <small>
             Submitted by
             <a href=<?php echo "profile.php?username=" . $author["username"] ?>>
@@ -56,6 +70,7 @@ include "includes/head.php";
             </a>
             on <?php echo date_format(date_create($post["post_date"]), "l, F jS, Y"); ?>
         </small>
+        
         <p>
             <?php
             if ($post["link"] === null) {
@@ -71,18 +86,18 @@ include "includes/head.php";
         
         <h2>Comments</h2>
         <?php
-        if (isset($_SESSION["username"])) {
-            echo <<<EOF
-            <form action="{$_SERVER['PHP_SELF']}?post_id={$post["post_id"]}" method="POST">
-                <p>
-                    <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
-                </p>
-                <p>
-                    <input type="submit" value="Submit">
-                </p>
-            </form>
-            EOF;
-        }
+            if (isset($_SESSION["username"])) {
+                echo <<<EOF
+                <form action="{$_SERVER['PHP_SELF']}?post_id={$post["post_id"]}" method="POST">
+                    <p>
+                        <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+                    </p>
+                    <p>
+                        <input type="submit" value="Submit">
+                    </p>
+                </form>
+                EOF;
+            }
         ?>
 
         <div class="comments">
@@ -102,6 +117,5 @@ include "includes/head.php";
             }
         ?>
         </div>
-
     </main>
 </body>

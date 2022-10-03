@@ -207,3 +207,35 @@ function check_login(string $username, string $password) {
 
     return ($count == 1 && password_verify($password, $hash));
 }
+
+function upvote(int $post) {
+    /**
+     * Increments post's score by 1
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare('UPDATE posts SET score = score + 1 WHERE post_id = ?');
+    if(!$statement){
+        printf("Query Prep Failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param('i', $post);
+    $statement->execute();
+    $statement->close();
+}
+
+function downvote(int $post) {
+    /**
+     * Decrements post's score by 1
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare('UPDATE posts SET score = score - 1 WHERE post_id = ?');
+    if(!$statement){
+        printf("Query Prep Failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param('i', $post);
+    $statement->execute();
+    $statement->close();
+}
