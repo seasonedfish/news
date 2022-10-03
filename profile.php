@@ -7,10 +7,6 @@ require_once "sql_queries.php";
 
 $user = null;
 
-function update() {
-    update_bio($_SESSION["username"], $_POST["new_bio"]);
-}
-
 function main() {
     global $user;
 
@@ -28,9 +24,6 @@ function main() {
     }
 
     session_start();
-    if (isset($_POST["new_bio"])) {
-        update();
-    }
 }
 
 main();
@@ -51,7 +44,7 @@ include "includes/head.php";
         if ($_GET["username"] === $_SESSION["username"]) {
             // Allow user to edit bio
             echo <<<EOF
-            <form action="{$_SERVER['PHP_SELF']}?username={$_GET["username"]}?>" method="POST">
+            <form action="profile_update_bio.php?username={$_GET["username"]}?>" method="POST">
             <p>
                 <label for="new_bio">Update bio:</label>
                 <br>
