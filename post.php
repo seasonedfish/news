@@ -33,12 +33,10 @@ include "includes/head.php";
             Submitted by
 
             <a href=<?php echo "profile.php?username=" . $author["username"] ?>>
-                <?php
-                echo $author["username"];
-                ?>
+                <?php echo $author["username"]; ?>
             </a>
 
-            on <?php echo $post["date"]; ?>
+            on <?php echo $post["post_date"]; ?>
         </small>
         <p>
             <?php
