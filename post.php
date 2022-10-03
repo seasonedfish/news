@@ -18,6 +18,8 @@ if (empty($post)) {
     exit();
 }
 
+$author = get_author($_GET["post_id"]);
+
 include "includes/head.php";
 ?>
 
@@ -27,6 +29,12 @@ include "includes/head.php";
         <h1>
             <?php echo $post["title"] ?>
         </h1>
+        <small>
+            Submitted by 
+            <?php
+            echo $author["username"];
+            ?>
+        </small>
         <p>
             <?php
             if ($post["link"] === null) {
