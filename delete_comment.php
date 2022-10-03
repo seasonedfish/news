@@ -2,36 +2,45 @@
 
 require_once "sql_queries.php";
 
-$post = null;
-$author = null;
+$comment = null;
 
 function delete() {
-    delete_post($_GET["post_id"]);
+    delete_comment($_GET["comment_id"]);
 }
 
 function main() {
-    global $author;
-    global $post;
-
-    $author = get_post_author($_GET["post_id"]);
-    $post = get_post($_GET["post_id"]);
+    global $comment;
 
     session_start();
-    if (!isset($_GET["post_id"])) {
-        // If no post_id: exit
+
+    if (!isset($_GET["comment_id"])) {
+        // No comment id given
         header("Location: index.php");
         exit();
     }
 
-    if ($_SESSION["username"] !== $author["username"]) {
-        // Username doesn't match: don't delete
+    $comment = get_comment($_GET["comment_id"]);
+
+    if (empty($comment)) {
+        // If no comment is found by query, redirect.
+        header("Location: post_not_found.php");
+        exit();
+    }
+
+    session_start();
+    if ($comment["username"] != $_SESSION["username"]) {
+        // Username doesn't match
         header("Location: index.php");
         exit();
     }
 
-    if(hash_equals($_SESSION['token'], $_POST['token'])){
+    if (isset($_POST["body"])) {
+        if(!hash_equals($_SESSION['token'], $_POST['token'])){
+            die("Request forgery detected");
+        }
+
         delete();
-        header("Location: index.php");
+        header("Location: post.php?post_id=" . $comment["post_id"]);
         exit();
     }
 }
@@ -47,9 +56,9 @@ include "includes/head.php";
         <h1>
             Delete post
         </h1>
-        <form action="<?php echo $_SERVER['PHP_SELF'] . "?post_id=" . $post["post_id"];?>" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF'] . "?post_id=" . $comment["comment_id"];?>" method="POST">
             <p>
-                Are you sure you want to delete this post?
+                Are you sure you want to delete this comment?
                 <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>" />
                 <input type="submit" value="Submit">
             </p>
