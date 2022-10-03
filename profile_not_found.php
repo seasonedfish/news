@@ -1,16 +1,7 @@
 <?php
 /**
- * Displays a user's profile.
+ * The server cannot find a given user.
  */
-
- require_once "sql_queries.php";
-
- $user = get_user($_GET["username"]);
-
- if (empty($user)) {
-    header("profile_not_found.php");
-    exit();
- }
 
  include "includes/head.php";
  ?>
@@ -22,7 +13,7 @@
 
     <main>
         <p>
-            Profile found
+            Profile not found.
         </p>
     </main>
 </body>

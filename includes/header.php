@@ -7,6 +7,7 @@
                     echo <<<EOF
                     <a href="submit_post.php">Submit post</a> 
                     <a href="profile.php">Profile</a>
+                    <a href="sign_out.php">Sign out</a>
                     EOF;
                 } else {
                     echo <<<EOF
