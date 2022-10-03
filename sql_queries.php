@@ -125,7 +125,7 @@ function insert_post(string $title, string $body, string $link, string $username
         printf("Query prep failed: %s\n", $mysqli->error);
         exit;
     }
-    $date = date("c");
+    $date = date("Y-m-d");
     $statement->bind_param(
         "sssss",
         $title,
