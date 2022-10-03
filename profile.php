@@ -4,10 +4,17 @@
  */
 
 require_once "sql_queries.php";
-// TODO: PROTECT AGAINST SQL INJECTION
+
+if (!isset($_GET["username"])) {
+    // If no username is given, redirect.
+    header("Location: profile_not_found.php");
+    exit();
+}
+
 $user = get_user($_GET["username"]);
 
 if (empty($user)) {
+    // If no profile is found by query, redirect.
     header("Location: profile_not_found.php");
     exit();
 }

@@ -4,10 +4,16 @@
  */
 require_once "sql_queries.php";
 
-// TODO: PROTECT AGAINST SQL INJECTION
+if (!isset($_GET["post_id"])) {
+    // If no post_id is given, redirect.
+    header("Location: post_not_found.php");
+    exit();
+}
+
 $post = get_post($_GET["post_id"]);
 
 if (empty($post)) {
+    // If no post is found by query, redirect.
     header("Location: post_not_found.php");
     exit();
 }
