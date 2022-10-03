@@ -105,7 +105,7 @@ include "includes/head.php";
             foreach (get_post_comments($post["post_id"]) as $comment) {
                 $body = preg_replace("((@)(\S+))", "<a href=profile.php?username=$2>@$2</a>", $comment["body"]);
                 $row = <<<EOF
-                <div class="comment">
+                <div class="item">
                     <p class="comment-author">
                         {$comment["username"]}
                     </p>
