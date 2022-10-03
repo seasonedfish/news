@@ -94,3 +94,19 @@ function get_post_author(int $post_id) {
     $statement->close();
     return $result->fetch_all(MYSQLI_ASSOC)[0];
 }
+
+function add_comment(string $body, int $post_id, string $username) {
+    /**
+     * Inserts a comment into the database.
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare("INSERT INTO comments (comment_id, body, post_id, username) values (NULL, ?, ?, ?)");
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param("sis", $body, $post_id, $username);
+    $statement->execute();
+    $statement->close();
+}

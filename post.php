@@ -4,23 +4,41 @@
  */
 require_once "sql_queries.php";
 
-if (!isset($_GET["post_id"])) {
-    // If no post_id is given, redirect.
-    header("Location: post_not_found.php");
-    exit();
+$post = null;
+$author = null;
+
+function comment() {
+    global $post;
+    add_comment($_POST["comment"], $post["post_id"], $_SESSION["username"]);
 }
 
-$post = get_post($_GET["post_id"]);
+function main() {
+    global $post;
+    global $author;
 
-if (empty($post)) {
-    // If no post is found by query, redirect.
-    header("Location: post_not_found.php");
-    exit();
+    if (!isset($_GET["post_id"])) {
+        // If no post_id is given, redirect.
+        header("Location: post_not_found.php");
+        exit();
+    }
+
+    $post = get_post($_GET["post_id"]);
+
+    if (empty($post)) {
+        // If no post is found by query, redirect.
+        header("Location: post_not_found.php");
+        exit();
+    }
+
+    $author = get_post_author($_GET["post_id"]);
+
+    session_start();
+    if (isset($_POST["comment"])) {
+        comment();
+    }
 }
 
-$author = get_post_author($_GET["post_id"]);
-
-session_start();
+main();
 
 include "includes/head.php";
 ?>
