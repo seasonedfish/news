@@ -111,7 +111,14 @@ include "includes/head.php";
         <div class="comments">
         <?php
             foreach (get_post_comments($post["post_id"]) as $comment) {
+                $comment_heading = $comment["username"];
+                if ($comment["username"] === $_SESSION["username"]) {
+                    $comment_heading .= "<a href='edit_comment.php?comment_id={$comment["comment_id"]}'>(edit)</a>";
+                    $comment_heading .= " ";
+                    $comment_heading .= "<a href='delete_comment.php?comment_id={$comment["comment_id"]}'>(delete)</a>";
+                }
                 $body = preg_replace("((@)(\S+))", "<a href=profile.php?username=$2>@$2</a>", $comment["body"]);
+
                 $row = <<<EOF
                 <div class="item">
                     <p class="comment-author">
