@@ -252,7 +252,7 @@ function update_post(int $post_id, string $title, string $body, string $link) {
         exit;
     }
     $statement->bind_param(
-        "ssss",
+        "sssi",
         $title,
         $body,
         $link,
