@@ -72,9 +72,9 @@ include "includes/head.php";
 
             <?php
             if ($_SESSION["username"] == $author["username"]) {
-                echo "<a href='edit_post.php'>(edit)</a>";
+                echo "<a href='edit_post.php?post_id={$post["post_id"]}'>(edit)</a>";
                 echo " ";
-                echo "<a href='delete_post.php'>(delete) </a>";
+                echo "<a href='delete_post.php?post_id={$post["post_id"]}'>(delete)</a>";
             }
             ?>
         </small>
