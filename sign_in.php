@@ -55,6 +55,7 @@ include "includes/head.php";
             if (isset($_POST['username']) && $_POST['password']) {
                 if (check_login($_POST['username'], $_POST['password'])) {
                     $_SESSION['username'] = $_POST['username'];
+                    $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32));
                     header("Location: index.php");
                     exit();
                 }

@@ -1,12 +1,10 @@
 <?php
-/**
- * The main page, listing all the stories.
- */
-require_once "sql_queries.php";
-
-session_start();
-
-include "includes/head.php";
+    /**
+     * The main page, listing all the stories.
+     */
+    require_once "sql_queries.php";
+    session_start();
+    include "includes/head.php";
 ?>
 
 <body>
@@ -17,7 +15,7 @@ include "includes/head.php";
         <?php 
         $rows = get_all_posts();
         foreach ($rows as $row) {
-            printf("%s (%s)\n", $row["title"], $row["username"]);
+            printf("%s (%s) \n", $row["title"], $row["username"]);
         }
         ?>
         </p>
