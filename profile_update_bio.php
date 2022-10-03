@@ -8,6 +8,7 @@ function main() {
     if (isset($_POST["new_bio"])) {
         update();
     }
+    header("Location: profile.php");
 }
 
 main();
