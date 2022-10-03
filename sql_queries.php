@@ -8,21 +8,14 @@ require_once "sql_connect.php";
 $mysqli = get_mysqli();
 
 
-function fetch_query(string $query) {
-    /**
-     * Fetches a query from the database.
-     */
-    global $mysqli;
-
-    $result = $mysqli->query($query);
-    return $result->fetch_all(MYSQLI_ASSOC);
-}
-
 function get_all_posts() {
     /**
      * Returns an array of associative arrays (each associative array contains one post's info).
      */
-    return fetch_query("SELECT * FROM posts");
+    global $mysqli;
+
+    $result = $mysqli->query("SELECT * FROM posts");
+    return $result->fetch_all(MYSQLI_ASSOC);
 }
 
 function get_post_comments(int $post_id) {
