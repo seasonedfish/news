@@ -30,10 +30,15 @@ include "includes/head.php";
             <?php echo $post["title"] ?>
         </h1>
         <small>
-            Submitted by 
-            <?php
-            echo $author["username"];
-            ?>
+            Submitted by
+
+            <a href=<?php echo "profile.php?username=" . $author["username"] ?>>
+                <?php
+                echo $author["username"];
+                ?>
+            </a>
+
+            on <?php echo $post["date"]; ?>
         </small>
         <p>
             <?php
