@@ -23,7 +23,20 @@ include "includes/head.php";
 
 <body>
     <?php include "includes/header.php" ?>
-
     <main>
+         <?php
+            foreach ($post as $key => $value) {
+                echo "Key: $key; Value: $value\n";
+            }
+        ?>
+        <h1>
+            <?php $post["title"] ?>
+        </h1>
+        <a href=<?php $post["link"] ?>>
+            <?php $post["link"] ?>
+        </a>
+        <p>
+            <?php $post["body"] ?>
+        </p>
     </main>
 </body>
