@@ -269,6 +269,18 @@ function delete_post(int $post_id) {
      */
     global $mysqli;
 
+    $statement = $mysqli->prepare("DELETE FROM comments WHERE post_id = ?");
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param(
+        "i",
+        $post_id
+    );
+    $statement->execute();
+    $statement->close();
+
     $statement = $mysqli->prepare("DELETE FROM posts WHERE post_id = ?");
     if(!$statement){
         printf("Query prep failed: %s\n", $mysqli->error);
