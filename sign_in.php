@@ -3,34 +3,7 @@
  * The sign-in / register page.
  */
 
-$error = null;
-
-function sign_in(string $username): void
-{
-    global $error;
-
-    $usernames_file = sprintf("%s/users.txt", DATA_ROOT);
-    $usernames_array = file($usernames_file, FILE_IGNORE_NEW_LINES);
-
-    if (in_array($username, $usernames_array)) {
-        $_SESSION['username'] = $username;
-        header("Location: main.php");
-        exit();
-    } else {
-        $error = "Account not found";
-    }
-}
-
-function main(): void
-{
-    session_start();
-    if (isset($_POST["username"])) {
-        sign_in($_POST["username"]);
-    }
-}
-
-main();
-
+require_once "sql_queries.php";
 include "includes/head.php";
 ?>
 
@@ -42,7 +15,7 @@ include "includes/head.php";
     <main>
         
         <h1>Sign in</h1>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form method="POST">
             <p>
                 <label for="username">Username: </label>
                 <input type="text" name="username" id="username">
@@ -58,7 +31,7 @@ include "includes/head.php";
         </form>
 
         <h1>Register</h1>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form method="POST">
             <p>
                 <label for="new_username">New username: </label>
                 <input type="text" name="new_username" id="new_username">
@@ -73,13 +46,32 @@ include "includes/head.php";
             </p>
         </form>
 
-        <p>
-            <?php
-            if (isset($error)) {
-                print($error);
+        <?php
+            session_start();
+            if (isset($_SESSION['username'])) {
+                header("Location: index.php");
+                exit();
             }
-            ?>
-        </p>
+            if (isset($_POST['username']) && $_POST['password']) {
+                if (check_login($_POST['username'], $_POST['password'])) {
+                    $_SESSION['username'] = $_POST['username'];
+                    header("Location: index.php");
+                    exit();
+                }
+                else {
+                    echo "Wrong username or password";
+                }
+            }
+            if (isset($_POST['new_username']) && $_POST['new_password']) {
+                if (check_user_exists($_POST['new_username'])) {
+                    echo "Username already exists, pick a different one";
+                }
+                else {
+                    create_user($_POST['new_username'], $_POST['new_password']);
+                    echo "Account created, log in with your username and password";
+                }
+            }
+        ?>
     </main>
 </body>
 
