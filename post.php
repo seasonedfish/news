@@ -73,7 +73,7 @@ include "includes/head.php";
         <?php
         if (isset($_SESSION["username"])) {
             echo <<<EOF
-            <form action="<?php echo {$_SERVER['PHP_SELF']}; ?>" method="POST">
+            <form action="{$_SERVER['PHP_SELF']}" method="POST">
                 <p>
                     <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
                 </p>
