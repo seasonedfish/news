@@ -13,6 +13,9 @@ function update() {
 }
 
 function main() {
+    global $post;
+    global $author;
+
     session_start();
 
     if (!isset($_GET["post_id"])) {
@@ -68,7 +71,7 @@ include "includes/head.php";
             <p>
                 <label for="body" class="required">Body:</label>
                 <br>
-                <textarea name="body" id="body" rows="4" cols="50" required>value="<?php echo $post["body"];?>"</textarea>
+                <textarea name="body" id="body" rows="4" cols="50" required><?php echo $post["body"];?></textarea>
             </p>
             <p>
                 <input type="submit" value="Submit">
