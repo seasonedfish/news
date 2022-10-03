@@ -49,8 +49,8 @@ td, th {
 
 .item {
     margin: 1em 0;
-    background-color: #EEEEEE;
-    border-radius: 3px;
+    border-left: thick solid #90B0C8;
+    padding: 0.5em;
 }
 
 .comment-author, .comment-body {
