@@ -332,3 +332,22 @@ function get_comment(int $comment_id) {
     $statement->close();
     return $result->fetch_all(MYSQLI_ASSOC)[0];
 }
+
+function delete_comment(int $comment_id) {
+    /**
+     * Deletes a comment in the database.
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare("DELETE FROM comments WHERE comment_id = ?");
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param(
+        "i",
+        $comment_id,
+    );
+    $statement->execute();
+    $statement->close();
+}
