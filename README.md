@@ -15,13 +15,14 @@ Creative Portion:
 Login details:
 
 1:
-
-Username: harry
-
-Password: password
+- Username: harry
+- Password: password
 
 2:
+- Username: test
+- Password: test
 
-Username: test
+3.
+- Username: fisher
+- Password: password
 
-Password: test
