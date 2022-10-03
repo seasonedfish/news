@@ -24,17 +24,18 @@ include "includes/head.php";
 <body>
     <?php include "includes/header.php" ?>
     <main>
-         <?php
-            foreach ($post as $key => $value) {
-                echo "Key: $key; Value: $value\n";
-            }
-        ?>
         <h1>
             <?php echo $post["title"] ?>
         </h1>
-        <a href=<?php echo $post["link"] ?>>
-            <?php echo $post["link"] ?>
-        </a>
+        <p>
+            <?php
+                $post["link"] = "https://www.google.com";
+                if ($post["link"] === null) {
+                    echo "<i>No link provided.</i>";
+                } else {
+                    printf('<a href=%1$s>%1$s</a>', $post['link']);
+                }
+            ?>
         <p>
             <?php echo $post["body"] ?>
         </p>
