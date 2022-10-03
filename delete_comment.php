@@ -34,11 +34,7 @@ function main() {
         exit();
     }
 
-    if (isset($_POST["body"])) {
-        if(!hash_equals($_SESSION['token'], $_POST['token'])){
-            die("Request forgery detected");
-        }
-
+    if(hash_equals($_SESSION['token'], $_POST['token'])){
         delete();
         header("Location: post.php?post_id=" . $comment["post_id"]);
         exit();
