@@ -31,12 +31,10 @@ include "includes/head.php";
         </h1>
         <small>
             Submitted by
-
             <a href=<?php echo "profile.php?username=" . $author["username"] ?>>
                 <?php echo $author["username"]; ?>
             </a>
-
-            on <?php echo $post["post_date"]; ?>
+            on <?php echo date_format(date_create($post["post_date"]), "l, F jS, Y"); ?>
         </small>
         <p>
             <?php
