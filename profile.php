@@ -44,7 +44,7 @@ include "includes/head.php";
         if ($_GET["username"] === $_SESSION["username"]) {
             // Allow user to edit bio
             echo <<<EOF
-            <form action="profile_update_bio.php?username={$_GET["username"]}?>" method="POST">
+            <form action="profile_update_bio.php?username={$_GET["username"]}" method="POST">
             <p>
                 <label for="new_bio">Update bio:</label>
                 <br>
