@@ -43,6 +43,7 @@ include "includes/head.php";
             if ($post["link"] === null) {
                 echo "<i>No link provided.</i>";
             } else {
+                /** @noinspection HtmlUnknownTarget */
                 printf('<a href=%1$s>%1$s</a>', $post['link']);
             }
             ?>
