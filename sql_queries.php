@@ -24,5 +24,5 @@ function get_post_comments(int $post_id) {
 }
 
 function get_user(string $username) {
-    return fetch_query("SELECT * FROM users WHERE username = '" . $username . "'");
+    return fetch_query("SELECT * FROM users WHERE username = '" . $username . "'")[0];
 }

@@ -3,17 +3,17 @@
  * Displays a user's profile.
  */
 
- require_once "sql_queries.php";
+require_once "sql_queries.php";
 
- $user = get_user($_GET["username"]);
+$user = get_user($_GET["username"]);
 
- if (empty($user)) {
-    header("profile_not_found.php");
+if (empty($user)) {
+    header("Location: profile_not_found.php");
     exit();
- }
+}
 
- include "includes/head.php";
- ?>
+include "includes/head.php";
+?>
 
  <body>
     <?php
@@ -23,6 +23,11 @@
     <main>
         <p>
             Profile found
+            <?php
+            foreach ($user as $key => $value) {
+                echo "Key: $key; Value: $value\n";
+            }
+            ?>
         </p>
     </main>
 </body>
