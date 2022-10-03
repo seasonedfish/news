@@ -43,6 +43,8 @@ function main() {
 
     if (isset($_POST["title"])) {
         update();
+        header("Location: post.php?post_id=" . $post["post_id"]);
+        exit();
     }
 }
 
