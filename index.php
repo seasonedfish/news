@@ -4,6 +4,8 @@
  */
 require_once "sql_queries.php";
 
+session_start();
+
 include "includes/head.php";
 ?>
 

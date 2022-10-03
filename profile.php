@@ -19,6 +19,8 @@ if (empty($user)) {
     exit();
 }
 
+session_start();
+
 include "includes/head.php";
 ?>
 

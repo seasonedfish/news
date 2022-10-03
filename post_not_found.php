@@ -3,8 +3,10 @@
  * The server cannot find a given post.
  */
 
- include "includes/head.php";
- ?>
+session_start();
+
+include "includes/head.php";
+?>
 
  <body>
     <?php
