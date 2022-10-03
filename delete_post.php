@@ -31,10 +31,9 @@ function main() {
 
     if(hash_equals($_SESSION['token'], $_POST['token'])){
         delete();
+        header("Location: index.php");
+        exit();
     }
-
-    header("Location: index.php");
-    exit();
 }
 
 main();
