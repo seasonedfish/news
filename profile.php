@@ -39,12 +39,12 @@ include "includes/head.php";
             echo <<<EOF
             <form action="{$_SERVER['PHP_SELF']}?>" method="POST">
             <p>
-                <label for="bio" class="required">Body:</label>
+                <label for="bio">Update bio:</label>
                 <br>
                 <textarea name="bio" id="bio" rows="4" cols="50" required>{$user["bio"]}</textarea>
             </p>
             <p>
-                <input type="submit" value="Update bio">
+                <input type="submit" value="Submit">
             </p>
             </form>
             EOF;
