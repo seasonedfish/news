@@ -66,7 +66,7 @@ function get_post(int $post_id) {
         printf("Query prep failed: %s\n", $mysqli->error);
         exit;
     }
-    $statement->bind_param("i", $username);
+    $statement->bind_param("i", $post_id);
     $statement->execute();
 
     $result = $statement->get_result();
