@@ -54,7 +54,7 @@ include "includes/head.php";
     <?php include "includes/header.php" ?>
     <main>
         <h1>
-            Delete post
+            Delete comment
         </h1>
         <form action="<?php echo $_SERVER['PHP_SELF'] . "?post_id=" . $comment["comment_id"];?>" method="POST">
             <p>
