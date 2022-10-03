@@ -110,3 +110,30 @@ function insert_comment(string $body, int $post_id, string $username) {
     $statement->execute();
     $statement->close();
 }
+
+function insert_post(string $title, string $body, string $link, string $username) {
+    /**
+     * Inserts a post into the database.
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare(
+        "INSERT INTO posts (post_id, title, body, link, score, post_date, username)
+        VALUES (NULL, ?, ?, ?, 0, ?, ?)"
+    );
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $date = date("c");
+    $statement->bind_param(
+        "sssss",
+        $title,
+        $body,
+        $link,
+        $date,
+        $username
+    );
+    $statement->execute();
+    $statement->close();
+}

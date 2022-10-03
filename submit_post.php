@@ -2,18 +2,17 @@
 /**
  * Allows a user to submit a post.
  */
-//require_once "sql_queries.php";
+require_once "sql_queries.php";
 
 function submit() {
-
+    insert_post($_POST["title"], $_POST["body"], $_POST["link"], $_SESSION["username"]);
 }
 
 function main() {
     session_start();
 
     if (isset($_POST["title"])) {
-        header("Location: sign_in.php");
-        exit();
+        submit();
     }
 }
 
