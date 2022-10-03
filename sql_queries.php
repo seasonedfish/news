@@ -239,3 +239,25 @@ function downvote(int $post) {
     $statement->execute();
     $statement->close();
 }
+
+function update_post(int $post_id, string $title, string $body, string $link) {
+    /**
+     * Updates a post in the database.
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare("UPDATE posts SET title = ?, body = ?, link = ? WHERE post_id = ?");
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param(
+        "ssss",
+        $title,
+        $body,
+        $link,
+        $post_id,
+    );
+    $statement->execute();
+    $statement->close();
+}
