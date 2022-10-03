@@ -58,23 +58,23 @@ include "includes/head.php";
             </p>
         </form>
 
-        
-        <table>
-            <?php
+        <div class="comments">
+        <?php
             foreach (get_post_comments($post["post_id"]) as $comment) {
                 $row = <<<EOF
-                <tr>
-                    <td>
+                <div class="comment">
+                    <p class="comment-author">
                         {$comment["username"]}
-                    </td>
-                    <td>
+                    </p>
+                    <p class="comment-body">
                         {$comment["body"]}
-                    </td>
-                </tr>
+                    </p>
+                </div>
                 EOF;
                 echo $row;
             }
-            ?>
-        </table>
+        ?>
+        </div>
+
     </main>
 </body>
