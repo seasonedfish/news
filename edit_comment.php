@@ -39,6 +39,10 @@ function main() {
     }
 
     if (isset($_POST["body"])) {
+        if(!hash_equals($_SESSION['token'], $_POST['token'])){
+            die("Request forgery detected");
+        }
+
         update();
         header("Location: post.php?post_id=" . $comment["post_id"]);
         exit();
@@ -62,6 +66,7 @@ include "includes/head.php";
                 <br>
                 <textarea name="body" id="body" rows="4" cols="50" required><?php echo $comment["body"];?></textarea>
             </p>
+            <input type="hidden" name="token" value="<?php echo $_SESSION['token'];?>" />
             <p>
                 <input type="submit" value="Submit">
             </p>
