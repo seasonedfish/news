@@ -34,3 +34,15 @@ main {
     padding: 0 2em;
     margin: auto;
 }
+
+/* Adapted from Sakura.css */
+table {
+    text-align: justify;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #f1f1f1;
+}
