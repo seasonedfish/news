@@ -57,7 +57,7 @@ include "includes/head.php";
         <h1>
             Edit post
         </h1>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF'] . "?post_id=" . $post["post_id"];?>" method="POST">
             <p>
                 <label for="title" class="required">Title:</label>
                 <br>
