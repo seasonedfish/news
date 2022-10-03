@@ -49,6 +49,8 @@ td, th {
 
 .comment {
     margin: 1em 0;
+    background-color: #EEEEEE;
+    border-radius: 3px;
 }
 
 .comment-author, .comment-body {
