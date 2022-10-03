@@ -30,6 +30,9 @@ include "includes/head.php";
     ?>
 
     <main>
+        <h1>
+            <?php echo $_GET["username"]; ?>'s profile
+        </h1>
         <p>
             Profile found
             <?php
