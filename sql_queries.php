@@ -33,6 +33,7 @@ function get_post_comments(int $post_id) {
     $statement->execute();
 
     $result = $statement->get_result();
+    $statement->close();
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
@@ -51,6 +52,7 @@ function get_user(string $username) {
     $statement->execute();
 
     $result = $statement->get_result();
+    $statement->close();
     // fetch_query returns an array of rows, but we only want a single row, so we return the first row.
     return $result->fetch_all(MYSQLI_ASSOC)[0];
 }
@@ -70,5 +72,6 @@ function get_post(int $post_id) {
     $statement->execute();
 
     $result = $statement->get_result();
+    $statement->close();
     return $result->fetch_all(MYSQLI_ASSOC)[0];
 }
