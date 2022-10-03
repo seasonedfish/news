@@ -34,3 +34,7 @@ main {
     padding: 0 2em;
     margin: auto;
 }
+
+.comment-input {
+    width: 100%;
+}

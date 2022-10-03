@@ -47,5 +47,20 @@ include "includes/head.php";
         <p>
             <?php echo $post["body"] ?>
         </p>
+        
+        <h2>
+            Comments
+        </h2>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>", method="POST">
+            <p>
+                <input class="comment-input" type="text" name="comment" id="comment">
+            </p>
+            <p>
+                <input type="submit" value="Submit">
+            </p>
+        </form>
+
+        <table>
+        </table>
     </main>
 </body>
