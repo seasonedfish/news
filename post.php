@@ -48,9 +48,7 @@ include "includes/head.php";
             <?php echo $post["body"] ?>
         </p>
         
-        <h2>
-            Comments
-        </h2>
+        <h2>Comments</h2>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>", method="POST">
             <p>
                 <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
