@@ -20,7 +20,7 @@ function main() {
         exit();
     }
 
-    if (!$_SESSION["username"] !== $author["username"]) {
+    if ($_SESSION["username"] !== $author["username"]) {
         // Username doesn't match: don't delete
         header("Location: index.php");
         exit();
