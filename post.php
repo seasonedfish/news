@@ -122,7 +122,7 @@ include "includes/head.php";
                 $row = <<<EOF
                 <div class="item">
                     <p class="comment-author">
-                        {$comment["username"]}
+                        {$comment_heading}
                     </p>
                     <p class="comment-body">
                         {$body}

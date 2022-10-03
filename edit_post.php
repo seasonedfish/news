@@ -1,6 +1,6 @@
 <?php
 /**
- * Allows a user to submit a post.
+ * Allows a user to edit a post.
  */
 require_once "sql_queries.php";
 
