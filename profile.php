@@ -4,7 +4,7 @@
  */
 
 require_once "sql_queries.php";
-
+// TODO: PROTECT AGAINST SQL INJECTION
 $user = get_user($_GET["username"]);
 
 if (empty($user)) {
