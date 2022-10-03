@@ -18,7 +18,7 @@ if (empty($post)) {
     exit();
 }
 
-$author = get_author($_GET["post_id"]);
+$author = get_post_author($_GET["post_id"]);
 
 include "includes/head.php";
 ?>
