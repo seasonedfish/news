@@ -30,10 +30,6 @@ function main() {
     }
 
     if(hash_equals($_SESSION['token'], $_POST['token'])){
-        if(!hash_equals($_SESSION['token'], $_POST['token'])){
-            die("Request forgery detected");
-        }
-
         delete();
         header("Location: index.php");
         exit();
