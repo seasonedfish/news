@@ -29,12 +29,11 @@ include "includes/head.php";
         </h1>
         <p>
             <?php
-                $post["link"] = "https://www.google.com";
-                if ($post["link"] === null) {
-                    echo "<i>No link provided.</i>";
-                } else {
-                    printf('<a href=%1$s>%1$s</a>', $post['link']);
-                }
+            if ($post["link"] === null) {
+                echo "<i>No link provided.</i>";
+            } else {
+                printf('<a href=%1$s>%1$s</a>', $post['link']);
+            }
             ?>
         <p>
             <?php echo $post["body"] ?>
