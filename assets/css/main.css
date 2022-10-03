@@ -54,3 +54,9 @@ td, th {
 .comment-author, .comment-body {
     margin: 0;
 }
+
+/* https://stackoverflow.com/a/11197803 */
+.required:after {
+    content:"*";
+    color: #BF0101;
+}
