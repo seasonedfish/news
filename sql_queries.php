@@ -95,7 +95,7 @@ function get_post_author(int $post_id) {
     return $result->fetch_all(MYSQLI_ASSOC)[0];
 }
 
-function add_comment(string $body, int $post_id, string $username) {
+function insert_comment(string $body, int $post_id, string $username) {
     /**
      * Inserts a comment into the database.
      */

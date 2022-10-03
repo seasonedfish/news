@@ -9,7 +9,7 @@ $author = null;
 
 function comment() {
     global $post;
-    add_comment($_POST["comment"], $post["post_id"], $_SESSION["username"]);
+    insert_comment($_POST["comment"], $post["post_id"], $_SESSION["username"]);
 }
 
 function main() {
