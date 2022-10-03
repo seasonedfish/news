@@ -20,6 +20,8 @@ if (empty($post)) {
 
 $author = get_post_author($_GET["post_id"]);
 
+session_start();
+
 include "includes/head.php";
 ?>
 
@@ -49,14 +51,20 @@ include "includes/head.php";
         </p>
         
         <h2>Comments</h2>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>", method="POST">
-            <p>
-                <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
-            </p>
-            <p>
-                <input type="submit" value="Submit">
-            </p>
-        </form>
+        <?php
+        if (isset($_SESSION["username"])) {
+            echo <<<EOF
+            <form action="<?php echo {$_SERVER['PHP_SELF']}; ?>" method="POST">
+                <p>
+                    <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+                </p>
+                <p>
+                    <input type="submit" value="Submit">
+                </p>
+            </form>
+            EOF;
+        }
+        ?>
 
         <div class="comments">
         <?php
