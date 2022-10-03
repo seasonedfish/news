@@ -30,13 +30,13 @@ include "includes/head.php";
             }
         ?>
         <h1>
-            <?php $post["title"] ?>
+            <?php echo $post["title"] ?>
         </h1>
-        <a href=<?php $post["link"] ?>>
-            <?php $post["link"] ?>
+        <a href=<?php echo $post["link"] ?>>
+            <?php echo $post["link"] ?>
         </a>
         <p>
-            <?php $post["body"] ?>
+            <?php echo $post["body"] ?>
         </p>
     </main>
 </body>
