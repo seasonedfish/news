@@ -293,3 +293,23 @@ function delete_post(int $post_id) {
     $statement->execute();
     $statement->close();
 }
+
+function update_comment(int $comment_id, string $body) {
+    /**
+     * Updates a comment in the database.
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare("UPDATE comments SET body = ? WHERE comment_id = ?");
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param(
+        "si",
+        $body,
+        $comment_id,
+    );
+    $statement->execute();
+    $statement->close();
+}
