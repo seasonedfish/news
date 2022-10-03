@@ -33,14 +33,30 @@ include "includes/head.php";
         <h1>
             <?php echo $_GET["username"]; ?>'s profile
         </h1>
-        <p>
-            Profile found
-            <?php
-            foreach ($user as $key => $value) {
-                echo "Key: $key; Value: $value\n";
-            }
-            ?>
-        </p>
+        <?php
+        if ($_GET["username"] === $_SESSION["username"]) {
+            // Allow user to edit bio
+            echo <<<EOF
+            <form action="{$_SERVER['PHP_SELF']}?>" method="POST">
+            <p>
+                <label for="bio" class="required">Body:</label>
+                <br>
+                <textarea name="bio" id="bio" rows="4" cols="50" required>{$user["bio"]}</textarea>
+            </p>
+            <p>
+                <input type="submit" value="Update bio">
+            </p>
+            </form>
+            EOF;
+        } else {
+            // Display bio
+            echo <<<EOF
+            <p>
+                {$user["bio"]}
+            </p>
+            EOF;
+        }
+        ?>
     </main>
 </body>
 
