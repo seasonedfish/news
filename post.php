@@ -69,6 +69,13 @@ include "includes/head.php";
                 <?php echo $author["username"];?>
             </a>
             on <?php echo date_format(date_create($post["post_date"]), "l, F jS, Y"); ?>
+
+            <?php
+            if ($_SESSION["username"] == $author["username"]) {
+                echo "<a href='edit_post.php'>(edit) </a>";
+                echo "<a href='delete_post.php'>(delete) </a>";
+            }
+            ?>
         </small>
         
         <p>
