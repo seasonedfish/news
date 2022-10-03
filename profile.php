@@ -5,21 +5,35 @@
 
 require_once "sql_queries.php";
 
-if (!isset($_GET["username"])) {
-    // If no username is given, redirect.
-    header("Location: profile_not_found.php");
-    exit();
+$user = null;
+
+function update() {
+    update_bio($_SESSION["username"], $_POST["new_bio"]);
 }
 
-$user = get_user($_GET["username"]);
+function main() {
+    global $user;
 
-if (empty($user)) {
-    // If no profile is found by query, redirect.
-    header("Location: profile_not_found.php");
-    exit();
+    if (!isset($_GET["username"])) {
+        // If no username is given, redirect.
+        header("Location: profile_not_found.php");
+        exit();
+    }
+
+    $user = get_user($_GET["username"]);
+    if (empty($user)) {
+        // If no profile is found by query, redirect.
+        header("Location: profile_not_found.php");
+        exit();
+    }
+
+    session_start();
+    if (isset($_POST["new_bio"])) {
+        update();
+    }
 }
 
-session_start();
+main();
 
 include "includes/head.php";
 ?>
@@ -39,9 +53,9 @@ include "includes/head.php";
             echo <<<EOF
             <form action="{$_SERVER['PHP_SELF']}?>" method="POST">
             <p>
-                <label for="bio">Update bio:</label>
+                <label for="new_bio">Update bio:</label>
                 <br>
-                <textarea name="bio" id="bio" rows="4" cols="50" required>{$user["bio"]}</textarea>
+                <textarea name="new_bio" id="new_bio" rows="4" cols="50" required>{$user["bio"]}</textarea>
             </p>
             <p>
                 <input type="submit" value="Submit">

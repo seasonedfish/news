@@ -137,3 +137,19 @@ function insert_post(string $title, string $body, string $link, string $username
     $statement->execute();
     $statement->close();
 }
+
+function update_bio(string $username, string $new_bio) {
+    /**
+     * Updates a user's bio.
+     */
+    global $mysqli;
+
+    $statement = $mysqli->prepare("UPDATE users SET bio = ? WHERE username = ?");
+    if(!$statement){
+        printf("Query prep failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $statement->bind_param("ss", $new_bio, $username);
+    $statement->execute();
+    $statement->close();
+}
