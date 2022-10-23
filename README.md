@@ -29,3 +29,5 @@ Login details:
 - Username: fisher
 - Password: password
 
+-5 no csrf tokens passed
++2 site is very good looking
