@@ -1,10 +1,10 @@
 # CSE330 News Website
-This repo contains Harry's and my implementation of [CSE 330 Module 3](https://classes.engineering.wustl.edu/cse330/index.php?title=Module_3).
+This repo contains Harry's and my implementation of CSE 330 module 3, a Reddit-like news website.
 It was created fall 2022.
 
-Fisher Sun / seasonedfish
+The spec can be found [here](https://classes.engineering.wustl.edu/cse330/index.php?title=Module_3#Grading).
 
-Harry Gao / harrygao56
+Fisher Sun / seasonedfish, Harry Gao / harrygao56
 
 ## Creative Portion
 - We created a profile page where you can see a brief bio on the user.
